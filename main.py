@@ -1,30 +1,25 @@
-# 初始化计数器
-alpha = 0
-digit = 0
-space = 0
-other = 0
-# 获取输入（兼容不同环境的输入处理）
-try:
-    input_str = input()
-except:
-    input_str = ""
-# 遍历每个字符
-for c in input_str:
-    # 英文字符判断
-    if (ord('A') <= ord(c) <= ord('Z')) or (ord('a') <= ord(c) <= ord('z')):
-        alpha += 1
-    # 数字判断
-        elif ord('0') <= ord(c) <= ord('9'):
-            digit += 1
-    # 空格判断（仅针对半角空格）
-elif ord(c) == 32:
-space += 1
-    # 其他字符
-else:
-other += 1
+# 初始化各类型字符的计数
+letter_count = 0
+digit_count = 0
+space_count = 0
+other_count = 0
 
-# 严格按照格式输出
-print(f"英文字符: {alpha}")
-print(f"数字: {digit}")
-print(f"空格: {space}")
-print(f"其他字符: {other}")
+# 从键盘获取一行输入
+input_str = input("请输入一行字符：")
+
+# 遍历输入的每一个字符
+for char in input_str:
+    if char.isalpha():  # 判断是否为英文字符（字母）
+        letter_count += 1
+    elif char.isdigit():  # 判断是否为数字
+        digit_count += 1
+    elif char.isspace():  # 判断是否为空格
+        space_count += 1
+    else:  # 其他情况，即为其他字符
+        other_count += 1
+
+# 按照要求格式输出统计结果
+print(f"英文字符: {letter_count}")
+print(f"数字: {digit_count}")
+print(f"空格: {space_count}")
+print(f"其他字符: {other_count}")
